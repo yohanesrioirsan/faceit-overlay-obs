@@ -35,8 +35,8 @@ export default function HowToUse({
   const triggerButton = trigger || <Button>How to use ?</Button>;
 
   const embedUrl = nickname
-    ? `${baseUrl}/overlay/${nickname}?style=${selectedTemplate}`
-    : `${baseUrl}/overlay/[your-nickname]?style=${selectedTemplate}`;
+    ? `${baseUrl}/overlay/${nickname}?template=${selectedTemplate}`
+    : `${baseUrl}/overlay/[your-nickname]?template=${selectedTemplate}`;
 
   const handleCopy = async () => {
     try {
