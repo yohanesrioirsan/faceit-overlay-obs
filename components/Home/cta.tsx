@@ -10,8 +10,11 @@ export default function HomeCta() {
         to integrate
       </h1>
       <p className="leading-loose text-balance text-base md:text-lg text-center">
-        Built as a side project by players, for players.You can even request
-        your own custom overlay design and get it made for free.
+        Built as a side project by players, for players.
+      </p>
+      <p className="leading-loose text-balance text-base md:text-lg text-center">
+        You can even request your own custom overlay design and get it made for
+        free.
       </p>
       <div className="text-center">
         <Link href="/generate">

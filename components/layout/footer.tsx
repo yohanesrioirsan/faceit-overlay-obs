@@ -37,6 +37,19 @@ export default function Footer() {
           </a>
         </p>
 
+        <p className="text-sm text-gray-500 mt-6">
+          <strong>Disclaimer:</strong> This site is not affiliated with or endorsed by FACEIT. All data is provided by the FACEIT API. This is an open source project that you can contribute to on{" "}
+          <a
+            href="https://github.com/yohanesrioirsan/faceit-overlay-obs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#FF7A05] hover:text-[#FF7A05]/80 transition-colors underline"
+          >
+            GitHub
+          </a>
+          .
+        </p>
+
         <p className="text-sm text-gray-500 mt-3">
           Made with ❤️ by{" "}
           <a
@@ -46,7 +59,11 @@ export default function Footer() {
             className="text-[#FF7A05] hover:text-[#FF7A05]/80 transition-colors underline"
           >
             yohanesrioirsan
-          </a>{" "}
+          </a>
+        </p>
+
+        <p className="text-xs text-gray-600 mt-4">
+          © {new Date().getFullYear()} FaceitOBS. All rights reserved.
         </p>
       </div>
     </div>
