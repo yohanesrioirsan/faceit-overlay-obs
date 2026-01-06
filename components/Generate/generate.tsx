@@ -6,9 +6,14 @@ import { Input } from "@/components/ui/input";
 import Layout from "../layout/layout";
 import { useFaceitRequest } from "@/hooks/useFaceitRequest";
 import { Loader2 } from "lucide-react";
+import dynamic from "next/dynamic";
 import ClassicTemplate from "../Template/classic";
 import { SelectTemplate } from "./select-template";
 import Type1Template from "../Template/type1";
+
+const HowToUse = dynamic(() => import("./tutorial"), {
+  ssr: false,
+});
 
 export default function GenerateOverlay() {
   const [nickname, setNickname] = useState("");
@@ -50,9 +55,15 @@ export default function GenerateOverlay() {
                 onValueChange={setSelectedTemplate}
                 className="h-14"
               />
-              <Button className="bg-[#FF7A05] text-white hover:bg-[#FF7A05]/70 w-fit cursor-pointer ">
-                How to use ?
-              </Button>
+              <HowToUse
+                trigger={
+                  <Button className="bg-[#FF7A05] text-white hover:bg-[#FF7A05]/70 w-fit cursor-pointer">
+                    How to use ?
+                  </Button>
+                }
+                nickname={data.nickname}
+                selectedTemplate={selectedTemplate}
+              />
             </div>
             {selectedTemplate === "classic" && (
               <ClassicTemplate
