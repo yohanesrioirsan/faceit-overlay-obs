@@ -5,6 +5,7 @@ import { useFaceitRequest } from "@/hooks/useFaceitRequest";
 import ClassicTemplate from "@/components/Template/classic";
 import { useSearchParams } from "next/navigation";
 import Type1Template from "@/components/Template/type1";
+import NeoBrutalismTemplate from "@/components/Template/neo-brutalism";
 
 export default function OverlayPage({
   params,
@@ -142,10 +143,14 @@ export default function OverlayPage({
   // If we have no data at all (initial load failed), show nothing
   if (!data) return null;
 
+  const template =
+    stringParams.get("template") ||
+    stringParams.get("style") || // fallback for old embed URLs
+    "classic";
+
   return (
     <div className="p-4 bg-transparent min-h-screen">
-      {(stringParams.get("template") === "clasic" ||
-        !stringParams.get("template")) && (
+      {(template === "classic" || template === "clasic") && ( // keep old typo for backward compatibility
         <ClassicTemplate
           nickname={data.nickname}
           recentMatches={data.statistic.recent_matches_history}
@@ -156,9 +161,19 @@ export default function OverlayPage({
         />
       )}
 
-      {stringParams.get("template") === "type1" && (
+      {template === "type1" && (
         <Type1Template
           avatar={data.avatar}
+          nickname={data.nickname}
+          recentMatches={data.statistic.recent_matches_history}
+          faceitElo={data.statistic.faceit_elo}
+          kdRatio={data.statistic.kd_ratio}
+        />
+      )}
+
+      {template === "neo-brutalism" && (
+        <NeoBrutalismTemplate
+          winRate={data.statistic.win_rate}
           nickname={data.nickname}
           recentMatches={data.statistic.recent_matches_history}
           faceitElo={data.statistic.faceit_elo}
