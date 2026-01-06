@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Layout from "../layout/layout";
 import { useFaceitRequest } from "@/hooks/useFaceitRequest";
-import { Copy, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import ClassicTemplate from "../Template/classic";
 import { SelectTemplate } from "./select-template";
 import Type1Template from "../Template/type1";

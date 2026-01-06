@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "../ui/button";
 
 export default function HomeCta() {
@@ -13,9 +14,11 @@ export default function HomeCta() {
         your own custom overlay design and get it made for free.
       </p>
       <div className="text-center">
-        <Button className="bg-[#FF7A05] text-white hover:bg-[#FF7A05]/70 w-fit cursor-pointer mt-3">
-          Try It Now
-        </Button>
+        <Link href="/generate">
+          <Button className="bg-[#FF7A05] text-white hover:bg-[#FF7A05]/70 w-fit cursor-pointer mt-3">
+            Try It Now
+          </Button>
+        </Link>
       </div>
     </div>
   );

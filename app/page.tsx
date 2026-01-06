@@ -2,7 +2,7 @@ import HomePage from "@/components/Home/home";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "FaceitOBS",
   description:
     "Free FACEIT CS2 stats overlay for OBS. Auto-updating overlay that displays your K/D, ELO, WinRate, and recent match history in real-time on your live stream. No manual refresh needed!",
   openGraph: {
