@@ -1,18 +1,14 @@
-# FaceitOBS
+<div align="center">
+  <img width="500" height="500" alt="faceit overlay" src="https://github.com/user-attachments/assets/bb67e0f0-62b7-4b08-acb6-a4c9093b5686" />
+  
+  # FACEIT CS2 Stats Overlay
+  
+  **Free. Auto-updating. Easy To Use.**
+  
+  Drop your K/D, ELO, and match history right into OBS. Updates in real-time while you stream.
+</div>
 
-A free, auto-updating FACEIT CS2 stats overlay for OBS streaming. Display your K/D ratio, ELO, win rate, and recent match history in real-time on your stream.
-
-## Features
-
-- Auto-updating stats (refreshes every 60 seconds)
-- Multiple template designs
-- Real-time FACEIT data (ELO, K/D, Win Rate, Match History)
-- OBS ready with transparent background
-- 100% free
-
-## Quick Start
-
-### Installation
+## Setup
 
 ```bash
 git clone https://github.com/yohanesrioirsan/faceit-overlay-obs.git
@@ -20,59 +16,37 @@ cd faceit-overlay-obs
 npm install
 ```
 
-### Setup
-
-1. Create `.env.local`:
+Create `.env.local`:
 ```env
-FACEIT_API_KEY=your_faceit_api_key_here
+FACEIT_API_KEY=your_api_key
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-2. Run development server:
+Run it:
 ```bash
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000)
+## How to Use
 
-## Usage
+1. Hit `/generate`
+2. Type your FACEIT nickname
+3. Pick a template
+4. Copy the URL
+5. Paste into OBS as Browser Source
 
-1. Go to `/generate`
-2. Enter your FACEIT nickname
-3. Select a template
-4. Copy the overlay URL: `/overlay/[your-nickname]`
-5. Add as Browser Source in OBS with the URL
-
-## Tech Stack
-
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-- Radix UI
-- FACEIT API
-
-## Available Templates
-
-- **Classic**: Clean, minimalist design
-- **Type 1**: Modern design with avatar background
-
-## Development
-
-```bash
-npm run dev    # Start dev server
-npm run build  # Build for production
-npm run start  # Start production server
-```
+Done.
 
 ## Contributing
 
-Contributions welcome! Open an issue or submit a PR.
+PRs welcome. Open an issue if something breaks.
 
 ## License
 
-Open source - feel free to use for personal or commercial projects.
+Open source. Use it however you want.
 
 ---
 
-Made by players, for players 🎮
+<div align="center">
+  <sub>Stars appreciated ⭐ • Built for the community</sub>
+</div>
