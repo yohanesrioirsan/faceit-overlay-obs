@@ -29,6 +29,8 @@ export function SelectTemplate({
     { value: "type1", label: "Type 1" },
     { value: "classic", label: "Classic" },
     { value: "neo-brutalism", label: "Neo-Brutalism" },
+    { value: "badge", label: "Badge" },
+    { value: "badge-wl", label: "Badge (with W/L)" },
   ],
   placeholder = "Select a template",
   label = "Templates Name",

@@ -11,6 +11,8 @@ import ClassicTemplate from "../Template/classic";
 import { SelectTemplate } from "./select-template";
 import Type1Template from "../Template/type1";
 import NeoBrutalismTemplate from "../Template/neo-brutalism";
+import BadgeTemplate from "../Template/badge";
+import BadgeTemplateWithHistory from "../Template/badge-wl";
 
 const HowToUse = dynamic(() => import("./tutorial"), {
   ssr: false,
@@ -107,6 +109,22 @@ export default function GenerateOverlay() {
                 recentMatches={data.statistic.recent_matches_history}
                 faceitElo={data.statistic.faceit_elo}
                 kdRatio={data.statistic.kd_ratio}
+              />
+            )}
+
+            {selectedTemplate === "badge" && (
+              <BadgeTemplate
+                skillLevel={data.statistic.skill_level}
+                faceitElo={data.statistic.faceit_elo}
+              />
+            )}
+
+            {selectedTemplate === "badge-wl" && (
+              <BadgeTemplateWithHistory
+                wins={data.statistic.today.wins}
+                losses={data.statistic.today.losses}
+                skillLevel={data.statistic.skill_level}
+                faceitElo={data.statistic.faceit_elo}
               />
             )}
           </div>

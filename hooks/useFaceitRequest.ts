@@ -5,8 +5,15 @@ interface RecentMatch {
   [key: string]: any;
 }
 
+interface TodayHistory {
+  losses: number;
+  matched_play: number;
+  wins: number;
+}
+
 interface FaceitStatistic {
   recent_matches_history: RecentMatch[];
+  today: TodayHistory;
   kd_ratio: string;
   win_rate: string;
   faceit_elo: number;
@@ -39,7 +46,7 @@ export function useFaceitRequest() {
       const response = await axios.get<FaceitResponse>(
         `/api/faceit-stats/${nickname}`
       );
-      
+
       // Check if the response indicates an error (status 404 or 500)
       if (response.data.status === 404 || response.data.status === 500) {
         setError(response.data.message || "Failed to fetch Faceit stats");
