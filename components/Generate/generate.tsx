@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import ClassicTemplate from "../Template/classic";
 import { SelectTemplate } from "./select-template";
 import Type1Template from "../Template/type1";
+import NeoBrutalismTemplate from "../Template/neo-brutalism";
 
 const HowToUse = dynamic(() => import("./tutorial"), {
   ssr: false,
@@ -92,6 +93,16 @@ export default function GenerateOverlay() {
             {selectedTemplate === "type1" && (
               <Type1Template
                 avatar={data.avatar}
+                nickname={data.nickname}
+                recentMatches={data.statistic.recent_matches_history}
+                faceitElo={data.statistic.faceit_elo}
+                kdRatio={data.statistic.kd_ratio}
+              />
+            )}
+
+            {selectedTemplate === "neo-brutalism" && (
+              <NeoBrutalismTemplate
+                winRate={data.statistic.win_rate}
                 nickname={data.nickname}
                 recentMatches={data.statistic.recent_matches_history}
                 faceitElo={data.statistic.faceit_elo}

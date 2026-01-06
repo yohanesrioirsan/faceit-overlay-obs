@@ -28,7 +28,7 @@ export function SelectTemplate({
   options = [
     { value: "type1", label: "Type 1" },
     { value: "classic", label: "Classic" },
-    { value: "neobrutalism", label: "Neo-Brutalism" },
+    { value: "neo-brutalism", label: "Neo-Brutalism" },
   ],
   placeholder = "Select a template",
   label = "Templates Name",
