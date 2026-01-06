@@ -1,0 +1,62 @@
+import { useState } from "react";
+import axios from "axios";
+
+interface RecentMatch {
+  [key: string]: any;
+}
+
+interface FaceitStatistic {
+  recent_matches_history: RecentMatch[];
+  kd_ratio: string;
+  win_rate: string;
+  faceit_elo: number;
+  skill_level: number;
+}
+
+interface FaceitData {
+  nickname: string;
+  avatar: string;
+  statistic: FaceitStatistic;
+}
+
+interface FaceitResponse {
+  status: number;
+  data: FaceitData;
+}
+
+export function useFaceitRequest() {
+  const [data, setData] = useState<FaceitData | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchStats = async (nickname: string) => {
+    setLoading(true);
+    setError(null);
+    setData(null);
+
+    try {
+      const response = await axios.get<FaceitResponse>(
+        `/api/faceit-stats/${nickname}`
+      );
+      setData(response.data.data);
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Failed to fetch Faceit stats");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const reset = () => {
+    setData(null);
+    setError(null);
+    setLoading(false);
+  };
+
+  return {
+    data,
+    loading,
+    error,
+    fetchStats,
+    reset,
+  };
+}

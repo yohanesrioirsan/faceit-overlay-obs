@@ -1,0 +1,64 @@
+{
+  "faceit_cs2_levels": [
+    {
+      "level": 1,
+      "elo_start": 100,
+      "elo_end": 500,
+      "image_url": "/assets/level5001.png"
+    },
+    {
+      "level": 2,
+      "elo_start": 501,
+      "elo_end": 750,
+      "image_url": "/assets/level5002.png"
+    },
+    {
+      "level": 3,
+      "elo_start": 751,
+      "elo_end": 900,
+      "image_url": "/assets/level5003.png"
+    },
+    {
+      "level": 4,
+      "elo_start": 901,
+      "elo_end": 1050,
+      "image_url": "/assets/level5004.png"
+    },
+    {
+      "level": 5,
+      "elo_start": 1051,
+      "elo_end": 1200,
+      "image_url": "/assets/level5005.png"
+    },
+    {
+      "level": 6,
+      "elo_start": 1201,
+      "elo_end": 1350,
+      "image_url": "/assets/level5006.png"
+    },
+    {
+      "level": 7,
+      "elo_start": 1351,
+      "elo_end": 1530,
+      "image_url": "/assets/level5007.png"
+    },
+    {
+      "level": 8,
+      "elo_start": 1531,
+      "elo_end": 1750,
+      "image_url": "/assets/level5008.png"
+    },
+    {
+      "level": 9,
+      "elo_start": 1751,
+      "elo_end": 2000,
+      "image_url": "/assets/level5009.png"
+    },
+    {
+      "level": 10,
+      "elo_start": 2001,
+      "elo_end": null,
+      "image_url": "/assets/level5010.png"
+    }
+  ]
+}
