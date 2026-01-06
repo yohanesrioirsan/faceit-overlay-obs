@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 
 interface RecentMatch {
@@ -29,22 +29,24 @@ export function useFaceitRequest() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchStats = async (nickname: string) => {
+  const fetchStats = useCallback(async (nickname: string) => {
     setLoading(true);
     setError(null);
-    setData(null);
+    // Don't clear data - preserve existing data during refresh to prevent flickering
 
     try {
       const response = await axios.get<FaceitResponse>(
         `/api/faceit-stats/${nickname}`
       );
       setData(response.data.data);
+      setError(null); // Clear any previous errors on success
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch Faceit stats");
+      // Keep existing data on error so overlay doesn't disappear
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   const reset = () => {
     setData(null);
