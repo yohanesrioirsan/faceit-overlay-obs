@@ -8,7 +8,8 @@ export function StructuredData({ data }: { data: object }) {
 }
 
 export function WebsiteStructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.xyz";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.vercel.app";
 
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -31,7 +32,8 @@ export function WebsiteStructuredData() {
 }
 
 export function SoftwareApplicationStructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.xyz";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.vercel.app";
 
   const softwareSchema = {
     "@context": "https://schema.org",

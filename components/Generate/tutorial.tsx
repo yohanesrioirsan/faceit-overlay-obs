@@ -29,8 +29,8 @@ export default function HowToUse({
     typeof window !== "undefined"
       ? process.env.NEXT_PUBLIC_SITE_URL ||
         window.location.origin ||
-        "https://faceitbox.vercel.app"
-      : "https://faceitbox.vercel.app";
+        "https://faceitobs.vercel.app"
+      : "https://faceitobs.vercel.app";
 
   const triggerButton = trigger || <Button>How to use ?</Button>;
 

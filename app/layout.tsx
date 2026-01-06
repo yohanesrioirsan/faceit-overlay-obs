@@ -14,7 +14,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.xyz"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.vercel.app"
   ),
   title: {
     default: "FaceitOBS - Showcase your FACEIT CS2 stats on stream",
