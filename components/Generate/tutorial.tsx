@@ -89,6 +89,18 @@ export default function HowToUse({
                 <li>Click OK and you are all set!</li>
               </ol>
             </div>
+            <div className="mt-4 p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg">
+              <h2 className="text-sm font-semibold text-amber-400 mb-1">
+                ⚠️ Auto-Refresh Notice
+              </h2>
+              <p className="text-xs text-gray-300 leading-relaxed">
+                Stats update automatically every <strong>90 seconds</strong> (or{" "}
+                <strong>45 seconds</strong> when recent activity is detected).
+                This means your stats will refresh within 1-2 minutes after a
+                match ends, not instantly. This balance ensures timely updates
+                while keeping API usage efficient.
+              </p>
+            </div>
           </div>
         </DialogHeader>
       </DialogContent>
