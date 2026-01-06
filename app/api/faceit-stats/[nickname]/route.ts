@@ -28,14 +28,15 @@ export async function GET(
 
     const playerDetails = await getPlayersDetails.json();
 
-    if (!getPlayersDetails.ok) {
-      throw new Error("Error while getting the players details");
-    }
-
     if (!playerDetails?.games?.cs2) {
       return NextResponse.json({
+        status: 404,
         message: "No Faceit CS2 Stats Found!",
       });
+    }
+
+    if (!getPlayersDetails.ok) {
+      throw new Error("Error while getting the players details");
     }
 
     // Get Player Statistic

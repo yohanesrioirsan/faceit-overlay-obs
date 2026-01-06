@@ -21,7 +21,8 @@ interface FaceitData {
 
 interface FaceitResponse {
   status: number;
-  data: FaceitData;
+  data?: FaceitData;
+  message?: string;
 }
 
 export function useFaceitRequest() {
@@ -38,8 +39,17 @@ export function useFaceitRequest() {
       const response = await axios.get<FaceitResponse>(
         `/api/faceit-stats/${nickname}`
       );
-      setData(response.data.data);
-      setError(null); // Clear any previous errors on success
+      
+      // Check if the response indicates an error (status 404 or 500)
+      if (response.data.status === 404 || response.data.status === 500) {
+        setError(response.data.message || "Failed to fetch Faceit stats");
+        // Keep existing data on error so overlay doesn't disappear
+      } else if (response.data.data) {
+        setData(response.data.data);
+        setError(null); // Clear any previous errors on success
+      } else {
+        setError("Unexpected response format");
+      }
     } catch (err: any) {
       setError(err.response?.data?.message || "Failed to fetch Faceit stats");
       // Keep existing data on error so overlay doesn't disappear

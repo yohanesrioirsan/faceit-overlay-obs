@@ -46,6 +46,19 @@ export default function GenerateOverlay() {
       </div>
 
       <div className="mt-3">
+        {error && error.includes("No Faceit CS2 Stats Found") && (
+          <div className="mt-4 p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg">
+            <h2 className="text-sm font-semibold text-amber-400 mb-1">
+              ⚠️ User Not Found
+            </h2>
+            <p className="text-xs text-gray-300 leading-relaxed">
+              User was not found or doesn&apos;t have CS2 stats on FACEIT.
+              Please check the spelling and make sure the player has played CS2
+              matches.
+            </p>
+          </div>
+        )}
+
         {data && (
           <div className="flex flex-col">
             <div className="flex items-center gap-3 mt-3 mb-6">
