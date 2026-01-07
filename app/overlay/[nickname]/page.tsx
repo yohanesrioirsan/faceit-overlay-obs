@@ -8,6 +8,7 @@ import Type1Template from "@/components/Template/type1";
 import NeoBrutalismTemplate from "@/components/Template/neo-brutalism";
 import BadgeTemplate from "@/components/Template/badge";
 import BadgeTemplateWithHistory from "@/components/Template/badge-wl";
+import RadarTemplate from "@/components/Template/radar";
 
 export default function OverlayPage({
   params,
@@ -196,6 +197,17 @@ export default function OverlayPage({
           losses={data.statistic.today.losses}
           skillLevel={data.statistic.skill_level}
           faceitElo={data.statistic.faceit_elo}
+        />
+      )}
+
+      {template === "radar" && (
+        <RadarTemplate
+          avatar={data.avatar}
+          nickname={data.nickname}
+          recentMatches={data.statistic.recent_matches_history}
+          faceitElo={data.statistic.faceit_elo}
+          kdRatio={data.statistic.kd_ratio}
+          winRate={data.statistic.win_rate}
         />
       )}
     </div>

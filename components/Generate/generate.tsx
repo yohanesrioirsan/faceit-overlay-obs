@@ -13,6 +13,7 @@ import Type1Template from "../Template/type1";
 import NeoBrutalismTemplate from "../Template/neo-brutalism";
 import BadgeTemplate from "../Template/badge";
 import BadgeTemplateWithHistory from "../Template/badge-wl";
+import RadarTemplate from "../Template/radar";
 
 const HowToUse = dynamic(() => import("./tutorial"), {
   ssr: false,
@@ -81,6 +82,7 @@ export default function GenerateOverlay() {
                 selectedTemplate={selectedTemplate}
               />
             </div>
+
             {selectedTemplate === "classic" && (
               <ClassicTemplate
                 nickname={data.nickname}
@@ -125,6 +127,17 @@ export default function GenerateOverlay() {
                 losses={data.statistic.today.losses}
                 skillLevel={data.statistic.skill_level}
                 faceitElo={data.statistic.faceit_elo}
+              />
+            )}
+
+            {selectedTemplate === "radar" && (
+              <RadarTemplate
+                avatar={data.avatar}
+                nickname={data.nickname}
+                recentMatches={data.statistic.recent_matches_history}
+                faceitElo={data.statistic.faceit_elo}
+                kdRatio={data.statistic.kd_ratio}
+                winRate={data.statistic.win_rate}
               />
             )}
           </div>
