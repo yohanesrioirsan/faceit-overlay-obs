@@ -9,7 +9,7 @@ export function StructuredData({ data }: { data: object }) {
 
 export function WebsiteStructuredData() {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.online";
 
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -33,7 +33,7 @@ export function WebsiteStructuredData() {
 
 export function SoftwareApplicationStructuredData() {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.vercel.app";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://faceitobs.online";
 
   const softwareSchema = {
     "@context": "https://schema.org",
