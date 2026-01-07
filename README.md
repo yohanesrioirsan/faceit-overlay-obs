@@ -9,33 +9,24 @@
 </div>
 
 ## Setup
-
 ```bash
 git clone https://github.com/yohanesrioirsan/faceit-overlay-obs.git
 cd faceit-overlay-obs
 npm install
 ```
 
+### Get Your FACEIT API Key
+1. Go to [FACEIT Developer Portal](https://developers.faceit.com/)
+2. Sign in with your FACEIT account
+3. Create a new app or use an existing one
+4. **Choose "Server-side API Key"** when prompted
+5. Copy your API key from the app settings
+
 Create `.env.local`:
 ```env
-FACEIT_API_KEY=your_api_key
+FACEIT_API_KEY=your_api_key_from_developer_portal
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
-
-Run it:
-```bash
-npm run dev
-```
-
-## How to Use
-
-1. Hit `/generate`
-2. Type your FACEIT nickname
-3. Pick a template
-4. Copy the URL
-5. Paste into OBS as Browser Source
-
-Done.
 
 ## Contributing
 
