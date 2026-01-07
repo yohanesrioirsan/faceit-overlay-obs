@@ -3,29 +3,30 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="my-8 px-4  py-8 border-t border-b border-white/10">
+    <div className="my-8 px-4 py-8 border-t border-white/10">
       <div className="text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light mb-2">
-          Like the project?
-        </h2>
-        <h3 className="text-3xl md:text-4xl lg:text-5xl font-light mb-6">
-          Keep it alive
-        </h3>
+        <h2 className="text-3xl font-light mb-2">Enjoying this project?</h2>
+        <h3 className="text-3xl font-light mb-6">You can support it here 🥳</h3>
 
         <div className="flex flex-row gap-3 justify-center items-center mb-2">
-          <Link href="https://steamcommunity.com/tradeoffer/new/?partner=164302201&token=SFueAA7j">
+          <Link
+            href="https://steamcommunity.com/tradeoffer/new/?partner=164302201&token=SFueAA7j"
+            target="_blank"
+          >
             <Button className="bg-[#FF7A05] text-white hover:bg-[#FF7A05]/80 px-6 py-2 font-medium">
-              Trade Offers
+              Support with skins 🔫
             </Button>
           </Link>
-          <Link href="https://sociabuzz.com/yohanesrioirsan">
+          <Link href="https://sociabuzz.com/yohanesrioirsan" target="_blank">
             <Button className="bg-[#FF7A05] text-white hover:bg-[#FF7A05]/80 px-6 py-2 font-medium">
-              Donations
+              Support with coffee ☕
             </Button>
           </Link>
         </div>
 
-        <p className="text-sm text-gray-400 mt-2 mb-3">(totally optional)</p>
+        <p className="text-sm text-gray-400/50 mt-2 mb-3">
+          *totally optional, but always appreciated 🤍
+        </p>
 
         <p className="text-sm text-gray-500 mt-6">
           Any requests or questions? Mail me here{" "}
@@ -37,10 +38,13 @@ export default function Footer() {
           </a>
         </p>
 
-        <p className="text-sm text-gray-500 mt-6">
+        <p className="text-sm text-gray-500 mt-3">
           <strong>Disclaimer:</strong> This site is not affiliated with or
-          endorsed by FACEIT. All data is provided by the FACEIT API. This is an
-          open source project that you can contribute to on{" "}
+          endorsed by FACEIT.{" "}
+          <span className="block leading-tight">
+            All data is provided by the FACEIT API.{" "}
+          </span>
+          This is an open source project that you can contribute to on{" "}
           <a
             href="https://github.com/yohanesrioirsan/faceit-overlay-obs"
             target="_blank"
