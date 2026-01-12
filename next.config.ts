@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "support.faceit.com",
       },
+      new URL("https://distribution.faceit-cdn.net/images/**"),
     ],
   },
 };

@@ -14,6 +14,7 @@ import NeoBrutalismTemplate from "../Template/neo-brutalism";
 import BadgeTemplate from "../Template/badge";
 import BadgeTemplateWithHistory from "../Template/badge-wl";
 import RadarTemplate from "../Template/radar";
+import Radar2Template from "../Template/radar2";
 
 const HowToUse = dynamic(() => import("./tutorial"), {
   ssr: false,
@@ -135,6 +136,18 @@ export default function GenerateOverlay() {
                 avatar={data.avatar}
                 nickname={data.nickname}
                 recentMatches={data.statistic.recent_matches_history}
+                faceitElo={data.statistic.faceit_elo}
+                kdRatio={data.statistic.kd_ratio}
+                winRate={data.statistic.win_rate}
+              />
+            )}
+
+            {selectedTemplate === "radar2" && (
+              <Radar2Template
+                wins={data.statistic.today.wins}
+                losses={data.statistic.today.losses}
+                avatar={data.avatar}
+                nickname={data.nickname}
                 faceitElo={data.statistic.faceit_elo}
                 kdRatio={data.statistic.kd_ratio}
                 winRate={data.statistic.win_rate}

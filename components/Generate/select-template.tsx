@@ -32,6 +32,7 @@ export function SelectTemplate({
     { value: "badge", label: "Elo Badge" },
     { value: "badge-wl", label: "Elo Badge (with W/L)" },
     { value: "radar", label: "Minimap Hider" },
+    { value: "radar2", label: "Minimap Hider 2.0" },
   ],
   placeholder = "Select a template",
   label = "Templates Name",
