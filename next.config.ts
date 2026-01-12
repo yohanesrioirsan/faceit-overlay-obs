@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
         hostname: "support.faceit.com",
       },
       new URL("https://distribution.faceit-cdn.net/images/**"),
+      new URL("https://assets.faceit-cdn.net/avatars/**"),
     ],
   },
 };
