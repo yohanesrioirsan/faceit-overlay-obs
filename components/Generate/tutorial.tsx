@@ -60,7 +60,7 @@ export default function HowToUse({
 
           <div className="mt-3 space-y-4">
             <div className="space-y-2">
-              <h1 className="text-lg font-semibold">1. Copy this embed code</h1>
+              <h1 className="text-lg font-semibold">1. Copy this URL</h1>
               <div className="relative">
                 <div className="px-3 py-2 bg-white/80 text-black/70 text-xs border rounded-lg pr-10 break-all">
                   {embedUrl}
@@ -85,7 +85,7 @@ export default function HowToUse({
                 <li>Open your OBS App.</li>
                 <li>Add Browser resources.</li>
                 <li>Paste the code that you copied on the URL box.</li>
-                <li>Remove all the CSS code in Custom CSS box.</li>
+                <li>Remove all the CSS code on the Custom CSS box.</li>
                 <li>Click OK and you are all set!</li>
               </ol>
             </div>
