@@ -31,7 +31,7 @@ export async function GET(
     params,
   }: {
     params: Promise<{ nickname: string }>;
-  }
+  },
 ) {
   const API_KEY = process.env.FACEIT_API_KEY || "";
   const API_ENDPOINT = "https://open.faceit.com/data/v4";
@@ -47,7 +47,7 @@ export async function GET(
         headers: {
           Authorization: `Bearer ${API_KEY}`,
         },
-      }
+      },
     );
 
     const playerDetails = await getPlayersDetails.json();
@@ -73,13 +73,34 @@ export async function GET(
         headers: {
           Authorization: `Bearer ${API_KEY}`,
         },
-      }
+      },
     );
 
     const playersStatistic = await getPlayersStatistic.json();
 
     if (!getPlayersStatistic.ok) {
       throw new Error("Error while getting the players statistic");
+    }
+
+    // Get Players Current Leaderboard Rank
+    const getPlayersRank = await fetch(
+      `${API_ENDPOINT}/rankings/games/cs2/regions/${playerDetails?.games?.cs2?.region}/players/${playerId}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+        },
+      },
+    );
+
+    const playerRegionalRank = await getPlayersRank.json();
+
+    if (!playerRegionalRank.position) {
+      throw new Error("Failed while getting players current position");
+    }
+
+    if (!getPlayersRank.ok) {
+      throw new Error("Error while getting the players current rank");
     }
 
     // Get Player Match History
@@ -90,7 +111,7 @@ export async function GET(
         headers: {
           Authorization: `Bearer ${API_KEY}`,
         },
-      }
+      },
     );
 
     const matchHistory = await getMatchHistory.json();
@@ -106,7 +127,7 @@ export async function GET(
     if (matchHistory?.items) {
       // Filter today's matches
       const todayMatches = matchHistory.items.filter(
-        (match: MatchItem) => match.finished_at >= todayTimestamp
+        (match: MatchItem) => match.finished_at >= todayTimestamp,
       );
 
       // Count wins and losses
@@ -119,7 +140,7 @@ export async function GET(
               headers: {
                 Authorization: `Bearer ${API_KEY}`,
               },
-            }
+            },
           );
 
           const matchStatsData: MatchStatsData = await matchStats.json();
@@ -132,7 +153,7 @@ export async function GET(
             const teams = round?.teams || [];
             for (const team of teams) {
               const player = team.players.find(
-                (p: PlayerStats) => p.player_id === playerId
+                (p: PlayerStats) => p.player_id === playerId,
               );
 
               if (player) {
@@ -157,7 +178,7 @@ export async function GET(
 
     // Get Players Recent W / L
     const playersHistory = playersStatistic.lifetime["Recent Results"].map(
-      (item: string) => (item === "1" ? "W" : "L")
+      (item: string) => (item === "1" ? "W" : "L"),
     );
 
     // Return All The Data
@@ -167,6 +188,8 @@ export async function GET(
         nickname: playerDetails?.nickname,
         avatar: playerDetails?.avatar,
         statistic: {
+          regional_rank: playerRegionalRank?.position,
+          is_challenger: playerRegionalRank?.position <= 1000 ? true : false,
           recent_matches_history: playersHistory,
           kd_ratio: playersStatistic?.lifetime["Average K/D Ratio"],
           win_rate: playersStatistic?.lifetime["Win Rate %"],
