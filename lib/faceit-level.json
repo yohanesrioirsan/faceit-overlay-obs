@@ -60,5 +60,9 @@
       "elo_end": null,
       "image_url": "/assets/level5010.png"
     }
-  ]
+  ],
+  "faceit_challenger": {
+    "level": "Challenger",
+    "image_url": "/assets/challenger.png"
+  }
 }

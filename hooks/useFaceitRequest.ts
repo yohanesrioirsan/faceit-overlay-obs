@@ -18,6 +18,8 @@ interface FaceitStatistic {
   win_rate: string;
   faceit_elo: number;
   skill_level: number;
+  regional_rank: number;
+  is_challenger: boolean;
 }
 
 interface FaceitData {
@@ -44,7 +46,7 @@ export function useFaceitRequest() {
 
     try {
       const response = await axios.get<FaceitResponse>(
-        `/api/faceit-stats/${nickname}`
+        `/api/faceit-stats/${nickname}`,
       );
 
       // Check if the response indicates an error (status 404 or 500)

@@ -31,6 +31,7 @@ export function SelectTemplate({
     { value: "neo-brutalism", label: "Neo-Brutalism" },
     { value: "badge", label: "Elo Badge" },
     { value: "badge-wl", label: "Elo Badge (with W/L)" },
+    { value: "badge-rank", label: "Elo Badge (with Regional Rank)" },
     { value: "radar", label: "Minimap Hider" },
     { value: "radar2", label: "Minimap Hider 2.0" },
   ],

@@ -13,6 +13,7 @@ import Type1Template from "../Template/type1";
 import NeoBrutalismTemplate from "../Template/neo-brutalism";
 import BadgeTemplate from "../Template/badge";
 import BadgeTemplateWithHistory from "../Template/badge-wl";
+import BadgeTemplateWithRank from "../Template/badge-rank";
 import RadarTemplate from "../Template/radar";
 import Radar2Template from "../Template/radar2";
 
@@ -128,6 +129,16 @@ export default function GenerateOverlay() {
                 losses={data.statistic.today.losses}
                 skillLevel={data.statistic.skill_level}
                 faceitElo={data.statistic.faceit_elo}
+              />
+            )}
+
+            {selectedTemplate === "badge-rank" && (
+              <BadgeTemplateWithRank
+                nickname={data.nickname}
+                skillLevel={data.statistic.skill_level}
+                faceitElo={data.statistic.faceit_elo}
+                regional_rank={data.statistic.regional_rank}
+                is_challenger={data.statistic.is_challenger}
               />
             )}
 

@@ -10,6 +10,7 @@ import BadgeTemplate from "@/components/Template/badge";
 import BadgeTemplateWithHistory from "@/components/Template/badge-wl";
 import RadarTemplate from "@/components/Template/radar";
 import Radar2Template from "@/components/Template/radar2";
+import BadgeTemplateWithRank from "@/components/Template/badge-rank";
 
 export default function OverlayPage({
   params,
@@ -34,7 +35,7 @@ export default function OverlayPage({
     // Users can set ?refresh=60000 for 60s, ?refresh=120000 for 2min, etc.
     const refreshInterval = parseInt(
       stringParams.get("refresh") || "90000",
-      10
+      10,
     );
     const normalInterval = Math.max(30000, Math.min(refreshInterval, 600000)); // Clamp between 30s and 10min
 
@@ -73,7 +74,7 @@ export default function OverlayPage({
       previousDataRef.current.statistic.faceit_elo !==
         data.statistic.faceit_elo ||
       JSON.stringify(
-        previousDataRef.current.statistic.recent_matches_history
+        previousDataRef.current.statistic.recent_matches_history,
       ) !== JSON.stringify(data.statistic.recent_matches_history);
 
     if (statsChanged) {
@@ -95,7 +96,7 @@ export default function OverlayPage({
       // Return to normal polling after 5 minutes
       const normalInterval = parseInt(
         stringParams.get("refresh") || "90000",
-        10
+        10,
       );
       const clampedInterval = Math.max(30000, Math.min(normalInterval, 600000));
 
@@ -198,6 +199,16 @@ export default function OverlayPage({
           losses={data.statistic.today.losses}
           skillLevel={data.statistic.skill_level}
           faceitElo={data.statistic.faceit_elo}
+        />
+      )}
+
+      {template === "badge-rank" && (
+        <BadgeTemplateWithRank
+          nickname={data.nickname}
+          skillLevel={data.statistic.skill_level}
+          faceitElo={data.statistic.faceit_elo}
+          regional_rank={data.statistic.regional_rank}
+          is_challenger={data.statistic.is_challenger}
         />
       )}
 
