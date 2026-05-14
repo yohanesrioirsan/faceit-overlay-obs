@@ -93,10 +93,13 @@ export async function GET(
       },
     );
 
-    const playerRegionalRank = await getPlayersRank.json();
+    let playerRegionalRank = await getPlayersRank.json();
 
     if (!playerRegionalRank.position) {
-      throw new Error("Failed while getting players current position");
+      playerRegionalRank = {
+        ...playerRegionalRank,
+        position: "unranked",
+      };
     }
 
     if (!getPlayersRank.ok) {
@@ -188,7 +191,7 @@ export async function GET(
         nickname: playerDetails?.nickname,
         avatar: playerDetails?.avatar,
         statistic: {
-          regional_rank: playerRegionalRank?.position,
+          regional_rank: playerRegionalRank?.position ?? "unranked",
           is_challenger: playerRegionalRank?.position <= 1000 ? true : false,
           recent_matches_history: playersHistory,
           kd_ratio: playersStatistic?.lifetime["Average K/D Ratio"],
