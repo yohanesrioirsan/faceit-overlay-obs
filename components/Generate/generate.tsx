@@ -24,7 +24,7 @@ const HowToUse = dynamic(() => import("./tutorial"), {
 
 export default function GenerateOverlay() {
   const [nickname, setNickname] = useState("");
-  const [selectedTemplate, setSelectedTemplate] = useState<string>("classic");
+  const [selectedTemplate, setSelectedTemplate] = useState<string>("top-bar");
 
   const { data, loading, error, fetchStats } = useFaceitRequest();
 
