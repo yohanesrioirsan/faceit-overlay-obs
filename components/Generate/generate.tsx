@@ -16,6 +16,7 @@ import BadgeTemplateWithHistory from "../Template/badge-wl";
 import BadgeTemplateWithRank from "../Template/badge-rank";
 import RadarTemplate from "../Template/radar";
 import Radar2Template from "../Template/radar2";
+import TopBarTemplate from "../Template/top-bar";
 
 const HowToUse = dynamic(() => import("./tutorial"), {
   ssr: false,
@@ -90,6 +91,15 @@ export default function GenerateOverlay() {
                 nickname={data.nickname}
                 recentMatches={data.statistic.recent_matches_history}
                 skillLevel={data.statistic.skill_level}
+                faceitElo={data.statistic.faceit_elo}
+                kdRatio={data.statistic.kd_ratio}
+                winRate={data.statistic.win_rate}
+              />
+            )}
+
+            {selectedTemplate === "top-bar" && (
+              <TopBarTemplate
+                nickname={data.nickname}
                 faceitElo={data.statistic.faceit_elo}
                 kdRatio={data.statistic.kd_ratio}
                 winRate={data.statistic.win_rate}

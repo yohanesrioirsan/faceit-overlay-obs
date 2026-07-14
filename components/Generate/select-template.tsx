@@ -27,7 +27,8 @@ export function SelectTemplate({
   onValueChange,
   options = [
     { value: "type1", label: "Type 1" },
-    { value: "classic", label: "Classic" },
+    { value: "top-bar", label: "Classic S" },
+    { value: "classic", label: "Classic XL" },
     { value: "neo-brutalism", label: "Neo-Brutalism" },
     { value: "badge", label: "Elo Badge" },
     { value: "badge-wl", label: "Elo Badge (with W/L)" },
@@ -37,7 +38,7 @@ export function SelectTemplate({
   ],
   placeholder = "Select a template",
   label = "Templates Name",
-  className = "w-[180px]",
+  className = "w-45",
 }: SelectTemplateProps) {
   const [mounted, setMounted] = useState(false);
 

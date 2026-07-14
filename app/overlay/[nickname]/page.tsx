@@ -11,6 +11,7 @@ import BadgeTemplateWithHistory from "@/components/Template/badge-wl";
 import RadarTemplate from "@/components/Template/radar";
 import Radar2Template from "@/components/Template/radar2";
 import BadgeTemplateWithRank from "@/components/Template/badge-rank";
+import TopBarTemplate from "@/components/Template/top-bar";
 
 export default function OverlayPage({
   params,
@@ -155,11 +156,20 @@ export default function OverlayPage({
 
   return (
     <div className="p-4 bg-transparent min-h-screen">
-      {(template === "classic" || template === "clasic") && ( // keep old typo for backward compatibility
+      {(template === "classic" || template === "clasic") && (
         <ClassicTemplate
           nickname={data.nickname}
           recentMatches={data.statistic.recent_matches_history}
           skillLevel={data.statistic.skill_level}
+          faceitElo={data.statistic.faceit_elo}
+          kdRatio={data.statistic.kd_ratio}
+          winRate={data.statistic.win_rate}
+        />
+      )}
+
+      {template === "top-bar" && (
+        <TopBarTemplate
+          nickname={data.nickname}
           faceitElo={data.statistic.faceit_elo}
           kdRatio={data.statistic.kd_ratio}
           winRate={data.statistic.win_rate}
